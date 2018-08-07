@@ -1,0 +1,20 @@
+{
+  "name": "pictionary-bot",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "license": "MIT",
+  "description": "Pictionary Bot made for @Designs on Twitch",
+  "repository": "https://github.com/mercxry/pictionary-bot",
+  "author": "mercxry",
+  "private": false,
+  "scripts": {
+    "start": "ts-node ./src/main.ts",
+    "start-watch": "nodemon ./src/main.ts"
+  },
+  "dependencies": {
+    "twitch-js": "^1.2.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
