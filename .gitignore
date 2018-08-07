@@ -74,3 +74,6 @@ typings/
 
 # Typescript compiled files
 dist/*
+
+# Config file
+config.ts

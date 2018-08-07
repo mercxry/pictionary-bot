@@ -1,1 +1,6 @@
-console.log("Hello World!");
+import Commands from "./commands";
+import Events from "./events";
+
+// Initialize functions
+Commands();
+Events();
