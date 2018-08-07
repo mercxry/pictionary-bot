@@ -2,7 +2,7 @@
   "name": "pictionary-bot",
   "version": "1.0.0",
   "main": "main.ts",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "description": "Pictionary Bot made for @Designs on Twitch",
   "repository": "https://github.com/mercxry/pictionary-bot",
   "author": "mercxry",
