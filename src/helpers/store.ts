@@ -42,6 +42,10 @@ export const setOwner = (owner: string) => {
   permissions[0] = owner;
 };
 
+export const resetOwner = () => {
+  permissions[0] = "";
+};
+
 export const getWinnerPermission = () => {
   return permissions[1];
 };
@@ -76,4 +80,12 @@ export const getRoundNumber = () => {
   /* Add 2 because the position 0 is the first winner
   and the first round is runned by the broadcaster */
   return winners.length + 2;
+};
+
+// Reset All
+export const resetAll = () => {
+  words = [];
+  permissions = [];
+  winners = [];
+  runningWord = "";
 };

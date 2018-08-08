@@ -15,21 +15,23 @@ client.on("whisper", (from: string, userstate: any, message: string, self: strin
     console.log(`Whisper by ${from}, message: ${message}`);
 
     // Checks if the message is a single word
-    if (message.includes(" ")) {
-      client.whisper(from, `Woow calm down, write a word not an entire phrase PunOko`);
-    } else {
-      // Reset the permission to set a new word for the winner
-      resetWinnerPermission();
-      setRunningWord(message);
+    if (message[0] !== "!") {
+      if (message.includes(" ")) {
+        client.whisper(from, `Woow calm down, write a word not an entire phrase PunOko`);
+      } else {
+        // Reset the permission to set a new word for the winner
+        resetWinnerPermission();
+        setRunningWord(message);
 
-      // Whisper the word for confirmation
-      client.whisper(from, `Word '${message}' set SeemsGood`);
+        // Whisper the word for confirmation
+        client.whisper(from, `Word '${message}' set SeemsGood`);
 
-      // Sends the word via whispers to the broadcaster too
-      if (from.substring(1) !== owner) { client.whisper(owner, `The word is '${message}'`); }
+        // Sends the word via whispers to the broadcaster too
+        if (from.substring(1) !== owner) { client.whisper(owner, `The word is '${message}'`); }
 
-      // Alert the chat that the word is set
-      client.say(`#${owner}`, phrases.channel.wordSet);
+        // Alert the chat that the word is set
+        client.say(`#${owner}`, phrases.channel.wordSet);
+      }
     }
   }
 });
