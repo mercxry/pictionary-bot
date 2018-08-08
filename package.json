@@ -7,14 +7,20 @@
   "repository": "https://github.com/mercxry/pictionary-bot",
   "author": "mercxry",
   "private": false,
+  "engines": {
+    "node": "8.11.2",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "start": "ts-node ./src/main.ts",
     "start-watch": "nodemon ./src/main.ts"
   },
   "dependencies": {
-    "typescript": "^3.0.1",
+    "@types/dotenv": "^4.0.3",
     "@types/node": "^10.5.7",
-    "twitch-js": "^1.2.14"
+    "dotenv": "^6.0.0",
+    "twitch-js": "^1.2.14",
+    "typescript": "^3.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.3",
