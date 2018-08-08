@@ -40,11 +40,11 @@ Simple Twitch.tv Bot for playing Pictionary, ispired by https://twitch.tv/design
 5. Write the `!pictionary` command in Twitch channel chat to start the bot! (Only the broadcaster can start the bot)
 
 # Commands
-#### Channel Commands
+##### Channel Commands
 - `!pictionary` Starts the bot (Only broadcaster)
 - `!about` Shows info about the creator
 
-### Whisper Commands
+#### Whisper Commands
 - `!stop` Stops the bot (Only broadcaster)
 
 # TODO
