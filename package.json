@@ -12,7 +12,8 @@
     "npm": "6.1.0"
   },
   "scripts": {
-    "start": "ts-node ./src/main.ts",
+    "start": "tsc && node dist/src/main.js",
+    "start-old": "ts-node ./src/main.ts",
     "start-watch": "nodemon ./src/main.ts"
   },
   "dependencies": {
