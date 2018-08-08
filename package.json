@@ -7,10 +7,6 @@
   "repository": "https://github.com/mercxry/pictionary-bot",
   "author": "mercxry",
   "private": false,
-  "engines": {
-    "node": "8.11.2",
-    "npm": "6.1.0"
-  },
   "scripts": {
     "start": "tsc && node dist/src/main.js",
     "build": "tsc",
