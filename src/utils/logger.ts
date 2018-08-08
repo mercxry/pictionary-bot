@@ -12,5 +12,5 @@ export const logWarning = (warning: string) => {
 
 export const logInfo = (info: string) => {
   const date: string = new Date().toISOString();
-  console.info(`${chalk.grey(date)} | ${chalk.bold.cyan("[INFO]")} ${chalk.cyanBright(info)}`);
+  console.log(`${chalk.grey(date)} | ${chalk.bold.cyan("[INFO]")} ${chalk.cyanBright(info)}`);
 };
