@@ -13,8 +13,9 @@
   },
   "scripts": {
     "start": "tsc && node dist/src/main.js",
-    "start-old": "ts-node ./src/main.ts",
-    "start-watch": "nodemon ./src/main.ts"
+    "build": "tsc",
+    "dev": "ts-node ./src/main.ts",
+    "dev-watch": "nodemon ./src/main.ts"
   },
   "dependencies": {
     "@types/dotenv": "^4.0.3",
