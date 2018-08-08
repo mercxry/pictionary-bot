@@ -1,6 +1,7 @@
 import client from "../connection";
 import phrasesRaw = require("../helpers/phrases");
 import { setOwner } from "../helpers/store";
+import { logInfo } from "../utils/logger";
 
 const phrases: any = phrasesRaw.default;
 
@@ -14,7 +15,7 @@ client.on("chat", (channel: string, userstate: any, message: string, self: strin
   // Check if the broadcaster writes the command '!pictionary'
   if (message === "!pictionary" && userstate.badges.broadcaster === "1") {
     // Send a message to the channel and logs to the console that the broadcaster is starting a pictionary
-    console.log(`@${username} is starting a pictionary!`);
+    logInfo(`@${username} is starting a pictionary`);
     client.say(channel, `@${username} is starting a pictionary! PogChamp`);
 
     // Greet the owner and ask him to send the first word to guess

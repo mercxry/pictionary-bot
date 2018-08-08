@@ -20,6 +20,7 @@
   "dependencies": {
     "@types/dotenv": "^4.0.3",
     "@types/node": "^10.5.7",
+    "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
     "twitch-js": "^1.2.14",
     "typescript": "^3.0.1"

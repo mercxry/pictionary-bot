@@ -77,9 +77,7 @@ export const getLastWinner = () => {
 
 // Rounds
 export const getRoundNumber = () => {
-  /* Add 2 because the position 0 is the first winner
-  and the first round is runned by the broadcaster */
-  return winners.length + 2;
+  return winners.length + 1;
 };
 
 // Reset All

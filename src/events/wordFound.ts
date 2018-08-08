@@ -1,6 +1,15 @@
 import client from "../connection";
 import phrasesRaw = require("../helpers/phrases");
-import { addWinner, getLastWinner, getRunningWord, resetRunningWord, setWinnerPermission } from "../helpers/store";
+import {
+  addWinner,
+  getLastWinner,
+  getRoundNumber,
+  getRunningWord,
+  resetRunningWord,
+  setWinnerPermission,
+} from "../helpers/store";
+import { getOrdinal } from "../utils";
+import { logInfo } from "../utils/logger";
 
 const phrases: any = phrasesRaw.default;
 
@@ -22,6 +31,7 @@ client.on("chat", (channel: string, userstate: any, message: string, self: strin
 
     // Send a message to the channel chat to alert that there is a winner
     client.say(channel, `Congratulations to @${username}, the word was '${word}'  HSWP CoolCat`);
+    logInfo(`@${username} won the ${getOrdinal(getRoundNumber())} round on ${channel} channel`);
 
     // Send another message to the channel to alert the winner to check DM's
     // Delayed to 1.5s to bypass spam limitation

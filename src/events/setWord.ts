@@ -1,6 +1,7 @@
 import client from "../connection";
 import phrasesRaw = require("../helpers/phrases");
 import { getOwner, getWinnerPermission, resetWinnerPermission, setRunningWord } from "../helpers/store";
+import { logInfo } from "../utils/logger";
 
 const phrases: any = phrasesRaw.default;
 
@@ -12,7 +13,7 @@ client.on("whisper", (from: string, userstate: any, message: string, self: strin
   const winner: string = getWinnerPermission() || owner;
 
   if (winner === from.substring(1)) {
-    console.log(`Whisper by ${from}, message: ${message}`);
+    logInfo(`@${winner} wrote the word '${message}'`);
 
     // Checks if the message is a single word
     if (message[0] !== "!") {
