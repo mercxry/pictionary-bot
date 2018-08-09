@@ -7,13 +7,13 @@ const phrases: any = phrasesRaw.default;
 
 client.on("chat", (channel: string, userstate: any, message: string, self: string) => {
   // Do not respond if the message is from the bot
-  if (self) { return; }
+  if (self || userstate.badges == null || userstate.badges.broadcaster == null) { return; }
 
   // Alias for userstate.username
   const username: string = userstate.username;
 
   // Check if the broadcaster writes the command '!pictionary'
-  if (message === "!pictionary" && userstate.badges.broadcaster === "1") {
+  if (message === "!pictionary") {
     // Send a message to the channel and logs to the console that the broadcaster is starting a pictionary
     logInfo(`@${username} is starting a pictionary`);
     client.say(channel, `@${username} is starting a pictionary! PogChamp`);

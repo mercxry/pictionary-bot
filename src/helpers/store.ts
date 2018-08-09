@@ -6,6 +6,8 @@ let permissions: string[] = [];
 let winners: string[] = [];
 // tslint:disable-next-line:prefer-const
 let runningWord: string;
+// tslint:disable-next-line:prefer-const
+let lastWinner: string;
 
 // Words
 export const getAllWords = () => {
@@ -64,15 +66,21 @@ export const getAllWinners = () => {
 };
 
 export const addWinner = (winner: string) => {
+  lastWinner = winner;
   winners.push(winner);
 };
 
 export const removeLastWinner = () => {
+  lastWinner = "";
   return winners.pop();
 };
 
+export const resetLastWinner = () => {
+  lastWinner = "";
+};
+
 export const getLastWinner = () => {
-  return winners[winners.length - 1];
+  return lastWinner;
 };
 
 // Rounds

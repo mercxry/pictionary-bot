@@ -6,6 +6,7 @@ import {
   getOwner,
   getRoundNumber,
   getRunningWord,
+  resetLastWinner,
   resetRunningWord,
   setWinnerPermission,
 } from "../helpers/store";
@@ -48,6 +49,8 @@ client.on("chat", (channel: string, userstate: any, message: string, self: strin
     if (username !== owner) {
       addWinner(username);
       setWinnerPermission(username);
+    } else {
+      resetLastWinner();
     }
 
     // Asks the winner to choose the next word
