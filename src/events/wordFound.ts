@@ -3,6 +3,7 @@ import phrasesRaw = require("../helpers/phrases");
 import {
   addWinner,
   getLastWinner,
+  getOwner,
   getRoundNumber,
   getRunningWord,
   resetRunningWord,
@@ -24,10 +25,14 @@ client.on("chat", (channel: string, userstate: any, message: string, self: strin
   const word: string = getRunningWord() || "";
   const compare: boolean = message.toLowerCase().trim() === word.toLowerCase().trim();
   const lastWinner: string = getLastWinner();
+  const owner: string = getOwner();
 
   if (word !== "" && compare && username !== lastWinner) {
     // Reset the runningWord so other people can't claim the win
     resetRunningWord();
+
+    // Send a whisper to the broadcaster to alert him who won
+    client.whisper(owner, `@${username} won the ${getOrdinal(getRoundNumber())} round`);
 
     // Send a message to the channel chat to alert that there is a winner
     client.say(channel, `Congratulations to @${username}, the word was '${word}'  HSWP CoolCat`);
@@ -39,9 +44,11 @@ client.on("chat", (channel: string, userstate: any, message: string, self: strin
       client.say(channel, `@${username} Whisper me the next word TPFufun`);
     }, 1500);
 
-    // Set permissions to choose the word for the winner
-    addWinner(username);
-    setWinnerPermission(username);
+    // Set permissions to choose the word for the winner if not the owner
+    if (username !== owner) {
+      addWinner(username);
+      setWinnerPermission(username);
+    }
 
     // Asks the winner to choose the next word
     client.whisper(username, phrases.whisper.startChat);
